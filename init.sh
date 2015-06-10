@@ -12,11 +12,6 @@ mkdir -p /var/lib/ceph
 mkdir -p /var/lib/ceph/osd
 mkdir -p /var/lib/ceph/osd/ceph-0
 
-# create a loopback disk for osd
-# dd if=/dev/zero of=/osd.disk bs=128M count=10 conv=notrunc
-# mkfs -t xfs -f /osd.disk
-# mount -t xfs -o loop /osd.disk /var/lib/ceph/osd/ceph-0
-
 MASTER=`hostname -s`
 
 ip=$(ip -4 -o a | grep eth0 | awk '{print $4}' | cut -d'/' -f1)
